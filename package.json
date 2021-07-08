@@ -1,0 +1,24 @@
+{
+  "name": "data-collector",
+  "version": "1.0.0",
+  "description": "Data collection for ABU chatbot",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client": "npm start --prefix client",
+    "nodemon": "nodemon server.js",
+    "dev": "concurrently \"npm run client\" \"npm run nodemon\""
+  },
+  "keywords": [
+    "data",
+    "datacollection",
+    "chatbot"
+  ],
+  "author": "Theveloper",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.13.2"
+  }
+}
