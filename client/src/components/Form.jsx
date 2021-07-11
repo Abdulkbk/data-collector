@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import Loading from "./loader/Loading";
 import SideImg from "../assets/side-image.png";
 
 function Form() {
 	const [email, setEmail] = useState("");
-	const [tag, setTag] = useState("greetings");
+	const [tag, setTag] = useState("");
 	const [pattern, setPattern] = useState("");
 	const [response, setResponse] = useState("");
 	const [loading, setLoading] = useState(false);
+
+	const tagRef = useRef();
+	const questionRef = useRef();
+	const responseRef = useRef();
 
 	const sendEntry = async (url = "", data = {}) => {
 		const res = await fetch(url, {
@@ -22,6 +26,7 @@ function Form() {
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+
 		setLoading(!loading);
 		const data = {
 			email,
@@ -35,6 +40,9 @@ function Form() {
 				setLoading(false);
 				console.log(res);
 				alert(res.message);
+				tagRef.current.value = "";
+				questionRef.current.value = "";
+				responseRef.current.value = "";
 			})
 			.catch((err) => {
 				setLoading(false);
@@ -85,6 +93,7 @@ function Form() {
 										id='tag'
 										type='tag'
 										required
+										ref={tagRef}
 										placeholder='Cutoff Mark'
 										onChange={(e) => setTag(e.target.value)}
 									/>
@@ -102,6 +111,7 @@ function Form() {
 									id='pattern'
 									placeholder='#What is the cutoff mark? #ABU cutoff mark? #Cutoff mark for Engineering'
 									required
+									ref={questionRef}
 									className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
 									onChange={(e) => setPattern(e.target.value)}
 								></textarea>
@@ -118,6 +128,7 @@ function Form() {
 									id='response'
 									placeholder='#180 for mast Dept. #180 is the general cutoff mark...'
 									required
+									ref={responseRef}
 									className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
 									onChange={(e) => setResponse(e.target.value)}
 								></textarea>
