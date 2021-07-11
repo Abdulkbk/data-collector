@@ -2,7 +2,7 @@ import "./loading.css";
 
 function Loading() {
 	return (
-		<div className='container absolute'>
+		<div className='flex justify-center'>
 			<div className='bouncer'>
 				<div></div>
 				<div></div>

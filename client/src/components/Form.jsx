@@ -85,7 +85,7 @@ function Form() {
 										id='tag'
 										type='tag'
 										required
-										placeholder='numberOfHostels'
+										placeholder='Cutoff Mark'
 										onChange={(e) => setTag(e.target.value)}
 									/>
 								</div>
@@ -100,7 +100,7 @@ function Form() {
 								<textarea
 									name='pattern'
 									id='pattern'
-									placeholder='#How are you #Are you coll? #How"s the day for you...'
+									placeholder='#What is the cutoff mark? #ABU cutoff mark? #Cutoff mark for Engineering'
 									required
 									className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
 									onChange={(e) => setPattern(e.target.value)}
@@ -116,7 +116,7 @@ function Form() {
 								<textarea
 									name='response'
 									id='response'
-									placeholder='#I"m fine #I am cool #Fine...'
+									placeholder='#180 for mast Dept. #180 is the general cutoff mark...'
 									required
 									className='w-full px-3 py-2 mb-3 text-sm leading-tight text-gray-700 border rounded shadow appearance-none focus:outline-none focus:shadow-outline'
 									onChange={(e) => setResponse(e.target.value)}
